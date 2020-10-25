@@ -4,7 +4,7 @@ public class trackitDTO {
 
 	
 	private String foodName;
-	private int Calories;
+	private int calories;
 	private int servingSize;
 	
 	
@@ -15,10 +15,10 @@ public class trackitDTO {
 		this.foodName = foodName;
 	}
 	public int getCalories() {
-		return Calories;
+		return calories;
 	}
 	public void setCalories(int calories) {
-		Calories = calories;
+		this.calories = calories;
 	}
 	public int getServingSize() {
 		return servingSize;
