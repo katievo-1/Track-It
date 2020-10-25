@@ -5,12 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Dimension;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.Component;
-import java.awt.Rectangle;
-import java.awt.Point;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JSeparator;
@@ -20,14 +16,14 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
 public class Home {
-
+	
+	//since you need the jframe in main, but others does not necessary to be there
 	private JFrame frmTrackIt;
-	private JTextField txtSearch;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -82,7 +78,7 @@ public class Home {
 		lblSubTitle.setBounds(381, 93, 159, 34);
 		frmTrackIt.getContentPane().add(lblSubTitle);
 		
-		txtSearch = new JTextField();
+		JTextField txtSearch = new JTextField();
 		txtSearch.setForeground(SystemColor.controlShadow);
 		txtSearch.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		txtSearch.setText("e.g, banana");
@@ -110,6 +106,7 @@ public class Home {
 		pnlRecent1.setLayout(null);
 		
 		JLabel lblRecent1 = new JLabel("should be empty");
+		lblRecent1.setForeground(Color.white);
 		lblRecent1.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblRecent1.setBounds(10, 0, 230, 44);
 		pnlRecent1.add(lblRecent1);
@@ -122,6 +119,7 @@ public class Home {
 		pnlRecent2.setLayout(null);
 		
 		JLabel lblRecent2 = new JLabel("should be empty");
+		lblRecent2.setForeground(Color.white);
 		lblRecent2.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblRecent2.setBounds(10, 0, 230, 44);
 		pnlRecent2.add(lblRecent2);
@@ -135,6 +133,7 @@ public class Home {
 		
 		JLabel lblRecent3 = new JLabel("should be empty");
 		lblRecent3.setFont(new Font("Tahoma", Font.ITALIC, 16));
+		lblRecent3.setForeground(Color.white);
 		lblRecent3.setBounds(10, 0, 230, 44);
 		pnlRecent3.add(lblRecent3);
 		
@@ -146,6 +145,7 @@ public class Home {
 		pnlRecent4.setLayout(null);
 		
 		JLabel lblRecent4 = new JLabel("should be empty");
+		lblRecent4.setForeground(Color.white);
 		lblRecent4.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblRecent4.setBounds(10, 0, 230, 44);
 		pnlRecent4.add(lblRecent4);
@@ -165,13 +165,17 @@ public class Home {
 		
 		JLabel lblTotal = new JLabel("0");
 		lblTotal.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTotal.setForeground(Color.white);
 		lblTotal.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblTotal.setBounds(10, 0, 230, 44);
 		pnlTotal.add(lblTotal);
 		
+		//I think you should save the image into the src folder, i created a folder src/main/resources/images, and i saved another image there, otherwise I did not see any images on the frame but a white block
+		// i resize the button too. 
 		JButton btnGit = new JButton("");
-		btnGit.setIcon(new ImageIcon("C:\\Users\\csros\\Downloads\\CLASS STUFF\\ENTERPRISE\\Documents\\GitHub-Mark\\PNG\\GitHub-Mark-32px.png"));
-		btnGit.setBounds(10, 636, 32, 32);
+		btnGit.setIcon(new ImageIcon("/Users/xiaoxiao/Desktop/Track-It/src/main/resources/images/github.png"));
+		btnGit.setBounds(16, 570, 79, 84);
 		frmTrackIt.getContentPane().add(btnGit);
+	
 	}
 }

@@ -1,5 +1,6 @@
 package com.trackit;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,12 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Calculator {
 
 	private JFrame frmTrackit;
-	private JTextField textField;
-	private JTextField txtServings;
 
 	/**
 	 * Launch the application.
@@ -70,7 +71,7 @@ public class Calculator {
 		lblSubTitle.setBounds(381, 93, 159, 34);
 		frmTrackit.getContentPane().add(lblSubTitle);
 		
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setText("e.g, banana");
 		textField.setForeground(SystemColor.controlShadow);
 		textField.setFont(new Font("Tahoma", Font.ITALIC, 16));
@@ -99,6 +100,7 @@ public class Calculator {
 		
 		JLabel lblFoodInfo = new JLabel("food x calories / serving");
 		lblFoodInfo.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblFoodInfo.setForeground(Color.white);
 		lblFoodInfo.setBounds(10, 0, 230, 60);
 		pnlFood.add(lblFoodInfo);
 		
@@ -115,7 +117,7 @@ public class Calculator {
 		pnlAmount.setBounds(381, 376, 250, 60);
 		frmTrackit.getContentPane().add(pnlAmount);
 		
-		txtServings = new JTextField();
+		JTextField txtServings = new JTextField();
 		txtServings.setText("no. Servings");
 		txtServings.setForeground(SystemColor.controlShadow);
 		txtServings.setFont(new Font("Tahoma", Font.ITALIC, 16));
@@ -130,6 +132,7 @@ public class Calculator {
 		pnlTimes.setLayout(null);
 		
 		JLabel lblTimes = new JLabel("X");
+		lblTimes.setForeground(Color.white);
 		lblTimes.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTimes.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblTimes.setBounds(10, 11, 40, 38);
@@ -142,6 +145,7 @@ public class Calculator {
 		frmTrackit.getContentPane().add(pnlEquals);
 		
 		JLabel lblEquals = new JLabel("=");
+		lblEquals.setForeground(Color.white);
 		lblEquals.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEquals.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblEquals.setBounds(10, 11, 40, 38);
@@ -168,19 +172,22 @@ public class Calculator {
 		
 		JLabel lblCaloriesConsumed = new JLabel("0");
 		lblCaloriesConsumed.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCaloriesConsumed.setForeground(Color.white);
 		lblCaloriesConsumed.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblCaloriesConsumed.setBounds(10, 0, 230, 60);
 		pnlCaloriesConsumed.add(lblCaloriesConsumed);
 		
 		JButton btnAdd = new JButton("Add to Total");
+		btnAdd.setIcon(new ImageIcon("/Users/xiaoxiao/Desktop/Track-It/src/main/resources/images/git.png"));
 		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAdd.setBackground(SystemColor.controlShadow);
 		btnAdd.setBounds(704, 559, 125, 44);
 		frmTrackit.getContentPane().add(btnAdd);
 		
+		// still the same problem as the one in home.java, put it into the images folder. The only thing i can see is the white block, 
 		JButton btnGit = new JButton("");
-		btnGit.setIcon(new ImageIcon("C:\\Users\\csros\\Downloads\\CLASS STUFF\\ENTERPRISE\\Documents\\GitHub-Mark\\PNG\\GitHub-Mark-32px.png"));
-		btnGit.setBounds(10, 638, 32, 32);
+		btnGit.setIcon(new ImageIcon("/Users/xiaoxiao/Desktop/Track-It/src/main/resources/images/github.png"));
+		btnGit.setBounds(16, 570, 79, 84);
 		frmTrackit.getContentPane().add(btnGit);
 	}
 }
