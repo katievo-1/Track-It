@@ -8,6 +8,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.SystemColor;
+import java.io.File;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -179,6 +181,10 @@ public class Calculator {
 		frmTrackit.getContentPane().add(btnAdd);
 		
 		JButton btnGit = new JButton("");
+		// Using relative path here would allow the app to work on other computers as well. It is a good practice to include assets such as images in a relative path to the app.
+		// Example of getting the basePath
+		String basePath = new File("").getAbsolutePath();
+	    System.out.println(basePath);
 		btnGit.setIcon(new ImageIcon("C:\\Users\\csros\\Downloads\\CLASS STUFF\\ENTERPRISE\\Documents\\GitHub-Mark\\PNG\\GitHub-Mark-32px.png"));
 		btnGit.setBounds(10, 638, 32, 32);
 		frmTrackit.getContentPane().add(btnGit);
