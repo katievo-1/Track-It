@@ -5,18 +5,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Dimension;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.Component;
-import java.awt.Rectangle;
-import java.awt.Point;
 import javax.swing.JPanel;
-import java.awt.Color;
 import javax.swing.JSeparator;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class Home {
 
@@ -69,11 +65,11 @@ public class Home {
 		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		frmTrackIt.getContentPane().add(lblTitle);
 		
-		JSeparator separator = new JSeparator();
-		separator.setForeground(SystemColor.menu);
-		separator.setBackground(SystemColor.controlHighlight);
-		separator.setBounds(44, 80, 1172, 2);
-		frmTrackIt.getContentPane().add(separator);
+		JSeparator separator1 = new JSeparator();
+		separator1.setForeground(SystemColor.menu);
+		separator1.setBackground(SystemColor.controlHighlight);
+		separator1.setBounds(44, 80, 1172, 2);
+		frmTrackIt.getContentPane().add(separator1);
 		
 		JLabel lblSubTitle = new JLabel("Search Food");
 		lblSubTitle.setHorizontalAlignment(SwingConstants.LEFT);
@@ -89,11 +85,11 @@ public class Home {
 		frmTrackIt.getContentPane().add(txtSearch);
 		txtSearch.setColumns(10);
 		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(SystemColor.menu);
-		separator_1.setBackground(SystemColor.controlHighlight);
-		separator_1.setBounds(381, 204, 520, 2);
-		frmTrackIt.getContentPane().add(separator_1);
+		JSeparator seperator2 = new JSeparator();
+		seperator2.setForeground(SystemColor.menu);
+		seperator2.setBackground(SystemColor.controlHighlight);
+		seperator2.setBounds(381, 204, 520, 2);
+		frmTrackIt.getContentPane().add(seperator2);
 		
 		JLabel lblRecent = new JLabel("Recently Searched");
 		lblRecent.setHorizontalAlignment(SwingConstants.LEFT);
@@ -167,5 +163,10 @@ public class Home {
 		lblTotal.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblTotal.setBounds(10, 0, 230, 44);
 		pnlTotal.add(lblTotal);
+		
+		JButton btnGit = new JButton("");
+		btnGit.setIcon(new ImageIcon("C:\\Users\\csros\\Downloads\\CLASS STUFF\\ENTERPRISE\\Documents\\GitHub-Mark\\PNG\\GitHub-Mark-32px.png"));
+		btnGit.setBounds(10, 636, 32, 32);
+		frmTrackIt.getContentPane().add(btnGit);
 	}
 }
