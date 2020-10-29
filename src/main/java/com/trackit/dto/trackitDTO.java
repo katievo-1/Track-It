@@ -1,4 +1,4 @@
-package com.trackit;
+package com.trackit.dto;
 
 public class trackitDTO {
 
@@ -8,6 +8,11 @@ public class trackitDTO {
 	private int servingSize;
 	
 	
+	public trackitDTO(String foodName, int calories, int servingSize) {
+		this.foodName = foodName;
+		this.calories = calories;
+		this.servingSize = servingSize;
+	}
 	public String getFoodName() {
 		return foodName;
 	}
@@ -27,12 +32,11 @@ public class trackitDTO {
 		this.servingSize = servingSize;
 	}
 	
-	/*
 	@Override
 	public String toString() {
-		return "trackitDTO [foodName=" + foodName + ", Calories=" + Calories + ", servingSize=" + servingSize + "]";
+		return "trackitDTO [foodName=" + foodName + ", calories=" + calories + ", servingSize=" + servingSize + "]";
 	}
-	*/
+
 	
 	
 	
