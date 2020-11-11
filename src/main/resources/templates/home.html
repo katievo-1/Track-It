@@ -47,14 +47,16 @@
 				Search Food
 			</h5>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control"
+				<input type="text" 
+					name = "searchTerm"
+					class="form-control"
 					placeholder="e.g, banana"
 					aria-label="Searched item"
 					aria-describedby="button-addon2">
-				<div class="input-group-append">
-					<button class="btn btn-outline-secondary" type="button"
+					<form action="#" th:action="@{/searchFoods}" method = GET> <!--  should call the searchFoods function within search bar -->
+					<button class="btn btn-outline-secondary" type="submit"
 						id="button-addon2">Search</button>
-				</div>
+			</form>
 			</div>
 			<hr style="margin-top: 30px; margin-bottom: 15px">
 			<h5 style="margin-bottom: 15px">Recently Searched</h5>
