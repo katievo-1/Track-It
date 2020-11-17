@@ -13,7 +13,7 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 
-<title>Home</title>
+<title>Calculator</title>
 <style>	
 	#info {
 		width: 48%;
@@ -29,9 +29,16 @@
 		margin-bottom: 10px;
 	}
 	#add {
-		position: absolute;
-		top: 533px;
-		right: 450px;  /* yikes */
+		position: relative;
+		left: 310px;
+		bottom: 72px;
+	}
+	a {
+		color: black;
+		text-decoration: none;
+	}
+	a:hover{
+		color: inherit;
 	}
 	:-ms-input-placeholder { 
    		font-style: italic; 
@@ -43,23 +50,27 @@
 <body>
 
 	<div class="container">
-		<h2 style="text-align: center; margin-top: 15px">
-			Calorie Calculator
-		</h2>
+		<a href="/">
+			<h2 style="text-align: center; margin-top: 15px">
+				Calorie Calculator
+			</h2>
+		</a>
 		<hr>
 		<div class="container" style="width: 55%">
 			<h5 style="margin-bottom: 15px">
 				Search Food
 			</h5>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control"
+				<input type="text" 
+					name = "searchTerm"
+					class="form-control"
 					placeholder="e.g, banana"
 					aria-label="Searched item"
 					aria-describedby="button-addon2">
-				<div class="input-group-append">
-					<button class="btn btn-outline-secondary" type="button"
+					<form action="#" th:action="@{/searchFoods}" method = GET> <!--  should call the searchFoods function within search bar -->
+					<button class="btn btn-outline-secondary" type="submit"
 						id="button-addon2">Search</button>
-				</div>
+			</form>
 			</div>
 			<hr style="margin-top: 30px; margin-bottom: 15px">
 			<h4 style="margin-bottom: 15px">Selected Food</h4>
