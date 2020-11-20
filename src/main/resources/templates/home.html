@@ -29,6 +29,13 @@
 		height: 50px;
 		padding: 10px;
 	}
+	a {
+		color: black;
+		text-decoration: none;
+	}
+	a:hover{
+		color: inherit;
+	}
 	:-ms-input-placeholder { 
    		font-style: italic; 
 	}
@@ -38,16 +45,19 @@
 
 <body>
 	<div class="container">
-		<h2 style="text-align: center; margin-top: 15px">
+		<a href="/">														<!-- there is probably a bootstrap class that can make this cleaner -->
+			<h2 style="text-align: center; margin-top: 15px">
 			Calorie Calculator
-		</h2>
+			</h2>
+		</a>
 		<hr>
 		<div class="container" style="width: 55%">
 			<h5 style="margin-bottom: 15px">
 				Search Food
 			</h5>
-			<div class="input-group mb-3">
-				<form action="#" th:action="@{/searchFoods}" method = GET> <!--  should call the searchFoods function within search bar -->
+			
+			<form action="#" th:action="@{/searchFoods}" method = GET> <!--  should call the searchFoods function within search bar -->
+				<div class="input-group">
 					<input type="text" 
 						name = "searchTerm"
 						class="form-control"
@@ -56,8 +66,9 @@
 						aria-describedby="button-addon2" />
 					<button class="btn btn-outline-secondary" type="submit"
 						id="button-addon2">Search</button>
-				</form>
-			</div>
+				</div>
+			</form>
+				
 			<hr style="margin-top: 30px; margin-bottom: 15px">
 			<h5 style="margin-bottom: 15px">Search Results</h5>
 			
