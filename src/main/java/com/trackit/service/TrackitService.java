@@ -1,26 +1,21 @@
-package com.trackit.Service;
+package com.trackit.service;
 
 import java.util.List;
-
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.trackit.dao.IFoodsDAO;
 import com.trackit.dto.Foods;
 
-import Trackit_DAO.IFoodsDAO;
+@Component("trackitService")
+public class TrackitService implements ITrackitService {
 
-//Service layer
+	@Autowired
+	private IFoodsDAO foodDAO;
 
-@Component
-public class ITrackitService implements TrackitService {
-	
-	
-	IFoodsDAO FoodDAO;
-	
 	@Override
 	public List<Foods> fetchFood(String searchTerm) throws Exception {
-		// TODO Auto-generated method stub
-		return FoodDAO.fetch(searchTerm);
+		return foodDAO.fetch(searchTerm);
 	}
 
 	@Override
