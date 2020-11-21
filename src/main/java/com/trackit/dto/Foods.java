@@ -64,10 +64,11 @@ public class Foods {
 	public void setCalories(String calories) {
 		this.calories = calories;
 	}
-
+//i used the source- generate tostring. a little bit different with yours before
 	@Override
 	public String toString() {
-		return foodCode + "" + displayName + "" + calories + "" + portionDefault;
+		return "Foods [foodCode=" + foodCode + ", displayName=" + displayName + ", portionDefault=" + portionDefault
+				+ ", calories=" + calories + "]";
 	}
 	
 	
