@@ -59,10 +59,10 @@ public class TrackItController {
 
 		List<Foods> fetchFood = new ArrayList<Foods>();
 		try {
-			fetchFood = trackitService.fetchFood(searchTerm);
+			fetchFood = trackitService.fetchAllFoods();
 
 			fetchFood.removeIf(s -> !s.getDisplayName().contains(searchTerm));
-			
+
 			modelAndView.setViewName("home");
 		} catch (Exception e) {
 			e.printStackTrace();

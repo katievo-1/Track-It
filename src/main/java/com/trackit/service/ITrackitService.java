@@ -7,7 +7,7 @@ import com.trackit.dto.Foods;
 
 public interface ITrackitService {
 
-	List<Foods> fetchFood(String string) throws Exception;
+	List<Foods> fetchAllFoods() throws Exception;
 
 	List<Foods> matchingFoods = new ArrayList<Foods>();
 
