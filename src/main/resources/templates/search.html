@@ -43,8 +43,7 @@
 
 </head>
 
-<body>
-	<div class="container">
+<div class="container">
 		<a href="/">
 			<h2 style="text-align: center; margin-top: 15px">
 				Calorie Calculator
@@ -56,17 +55,18 @@
 				Search Food
 			</h5>
 			<div class="input-group mb-3">
-				<input type="text"
-					name="search-term"
+				<input type="text" 
+					name = "searchTerm"
 					class="form-control"
 					placeholder="e.g, banana"
 					aria-label="Searched item"
 					aria-describedby="button-addon2">
-					<form action="#" th:action="@{/searchFoods}" method=GET> <!--  should call the searchFoods function within search bar -->
-						<button class="btn btn-outline-secondary" type="submit"
-							id="button-addon2">Search
-						</button>
+					<form action="#" th:action="@{/searchFoods}" method = GET> <!--  should call the searchFoods function within search bar -->
 					</form>
+				
+			</div>
+			<button  class="btn btn-outline-secondary" type="submit" 
+						id="button-addon2">Search</button>
 			</div>
 			<hr style="margin-top: 30px; margin-bottom: 15px">
 			<h4 style="margin-bottom: 15px">Results</h4>
