@@ -20,7 +20,7 @@ public class FoodDAO implements IFoodsDAO {
 	NetworkDAO networkDAO;
 
 	@Override
-	public List<Foods> fetch(String searchFilter) throws Exception {
+	public List<Foods> fetch() throws Exception {
 
 		// using retrofit to parse data from json
 		Retrofit retrofit = new Retrofit.Builder().baseUrl("https://raw.githubusercontent.com")

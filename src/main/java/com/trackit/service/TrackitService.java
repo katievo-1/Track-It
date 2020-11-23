@@ -14,8 +14,8 @@ public class TrackitService implements ITrackitService {
 	private IFoodsDAO foodDAO;
 
 	@Override
-	public List<Foods> fetchFood(String searchTerm) throws Exception {
-		return foodDAO.fetch(searchTerm);
+	public List<Foods> fetchAllFoods() throws Exception {
+		return foodDAO.fetch();
 	}
 
 	@Override

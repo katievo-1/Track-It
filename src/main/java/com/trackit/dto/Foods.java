@@ -21,10 +21,6 @@ public class Foods {
 
 	//Set Constructors
 
-	public Foods() {
-		
-	}
-
 	public Foods(String foodCode, String displayName, String portionDefault, String calories) {
 		super();
 		this.foodCode = foodCode;
