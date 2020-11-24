@@ -74,17 +74,17 @@
 		<hr style="margin-top: 15px; margin-bottom: 15px">
 			
 		<div class="container" style="width: 55%">
-			<form action="#" th:action="@{save}" th:object="${foodItem}" method="POST">
+			<form action="#" method="POST">
 			
 				<!-- Invisible form as needed to update info -->
-				<input type="hidden" th:field="*{id}"/>
+				<input type="hidden" />		<!-- th:field="*{id}" -->
 				
-				<input id="input" type="text" th:field="*{Food_name}"
+				<input id="input" type="text" 	
 					class="form-control mb-3 col-6"
 					placeholder="Food Name"
 					style="margin-top: 15px">
 					
-				<input id="input" type="text" th:field="*{Food_name}"
+				<input id="input" type="text" 
 					class="form-control mb-4 col-6"
 					placeholder="Calories">
 					
