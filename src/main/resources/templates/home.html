@@ -74,14 +74,31 @@
 			
 			<div id="results" class="row mx-md-n2" th:each="food: ${foods}">
   				<div class="col px-md-2">
-  					<div class="p-3 border bg-light">
+  					<div class="p-2 border bg-light">
   						<p th:text="'Item #:' + ${food.foodCode}" />
   						<p th:text="${food.displayName}" />
-  						<p th:text="'Portion amount:' + ${food.portionDefault}"/>
-  						<p th:text="'Number of Calories:' + ${food.calories}" />
+  						<p th:text="${food.portionDefault}" />
+  						<p th:text="${food.calories}" />
   					</div>
   				</div>
 			</div>
+		</div>
+		
+		<div class="container" style="width: 55%">
+			<table class="table table-striped">
+				<thead class="thead-light">
+					<tr>
+						<th>Food Name</th>
+						<th>Calories</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="">					
+						<td th:text="" />			
+						<td th:text="" />
+					</tr>		
+				</tbody>
+			</table>
 		</div>
 		
 		<div class="container" style="width: 55%">
