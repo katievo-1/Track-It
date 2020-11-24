@@ -58,7 +58,8 @@
 			
 			<form action="#" th:action="@{/searchFoods}" method = GET> <!--  should call the searchFoods function within search bar -->
 				<div class="input-group">
-					<input type="text" 
+					<input type="text"
+						id="input" 
 						name = "searchTerm"
 						class="form-control"
 						placeholder="e.g, banana"
@@ -68,8 +69,33 @@
 						id="button-addon2">Search</button>
 				</div>
 			</form>
+		</div>
+		
+		<hr style="margin-top: 15px; margin-bottom: 15px">
+			
+		<div class="container" style="width: 55%">
+			<form action="#" th:action="@{save}" th:object="${foodItem}" method="POST">
+			
+				<!-- Invisible form as needed to update info -->
+				<input type="hidden" th:field="*{id}"/>
 				
-			<hr style="margin-top: 30px; margin-bottom: 15px">
+				<input id="input" type="text" th:field="*{Food_name}"
+					class="form-control mb-3 col-6"
+					placeholder="Food Name"
+					style="margin-top: 15px">
+					
+				<input id="input" type="text" th:field="*{Food_name}"
+					class="form-control mb-4 col-6"
+					placeholder="Calories">
+					
+				<button type="submit" class="btn btn-outline-secondary">Add Food</button>
+			
+			</form>
+		</div>
+				
+		<hr style="margin-top: 15px; margin-bottom: 15px">
+		
+		<div class="container" style="width: 55%">
 			<h5 style="margin-bottom: 15px">Search Results</h5>
 			
 			<div id="results" class="row mx-md-n2" th:each="food: ${foods}">
@@ -93,24 +119,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="">					
-						<td th:text="" />			
-						<td th:text="" />
+					<tr >					<!-- th:each= -->
+						<td />				<!-- th:text= -->
+						<td/>
 					</tr>		
 				</tbody>
 			</table>
 		</div>
-		
-		<div class="container" style="width: 55%">
-			<h2 style="text-align: center; margin-top: 30%">
-				Calories Today
-			</h2>
-			<div id="total" class="container">
-				<h5>
-					a number	<!-- th:text here of something -->
-				</h5>
-			</div>
-		</div>
+
 	</div>
 </body>
 
