@@ -6,71 +6,78 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
+import com.trackit.dto.Food;
 import com.trackit.dto.Foods;
+import com.trackit.service.FoodService;
 import com.trackit.service.TrackitService;
 
 @Controller
 public class TrackItController {
 
+	public FoodService foodService;
+	
 	@Autowired
 	private TrackitService trackitService;
 
-	/*
-	 * private List<Foods> theCalories;
-	 * 
-	 * @PostConstruct private void loadData() {
-	 * 
-	 * 
-	 * // Create Faculties Foods meal1 = new Foods("Banana",150,1); Foods meal2 =
-	 * new Foods("yogurt",300,2); Foods meal3 = new Foods("Chocolate Milk",890,4);
-	 * 
-	 * //Create our List of Faculties theCalories = new ArrayList<>();
-	 * 
-	 * 
-	 * //Add them to the list theCalories.add(meal1); theCalories.add(meal2);
-	 * theCalories.add(meal3);
-	 * 
-	 * }
-	 */
-
-	public TrackItController() {
+	public TrackItController(FoodService theFoodService) {
+		foodService = theFoodService;
 		trackitService = new TrackitService();
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Model model) {
+	public String index(@RequestParam(value = "searchTerm", required = false, defaultValue = "") String searchTerm, Model model) {
+		Food food= new Food();
+
+		//Retrieve faculties from the Database
+		List<Food> foods = foodService.findAll();	
+
+		//Add faculties to the Spring Model
+		model.addAttribute("foodList", foods);
+		
+		model.addAttribute("food", food);
+		
+		List<Foods> fetchFood = new ArrayList<Foods>();
+		
+		if(searchTerm != null && !searchTerm.isEmpty()) {
+			try {
+				fetchFood = trackitService.fetchAllFoods();
+
+				fetchFood.removeIf(s -> !s.getDisplayName().contains(searchTerm));
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		model.addAttribute("foods", fetchFood);
+		
 		return "home";
 	}
-
-	@RequestMapping(value = "/calculator", method = RequestMethod.GET)
-	public String calculator(Model model) {
-		return "calculator";
+	
+	@PostMapping("/save")
+	public String saveFood(@ModelAttribute("food") Food food) {
+		
+		//Register the Food
+		foodService.save(food);
+		
+		//Block duplicate submission for accident page refresh
+		return "redirect:/";
 	}
-
-	@RequestMapping("/searchFoods")
-	public ModelAndView searchFoods(
-			@RequestParam(value = "searchTerm", required = false, defaultValue = "") String searchTerm) {
-		ModelAndView modelAndView = new ModelAndView();
-
-		List<Foods> fetchFood = new ArrayList<Foods>();
-		try {
-			fetchFood = trackitService.fetchAllFoods();
-
-			fetchFood.removeIf(s -> !s.getDisplayName().contains(searchTerm));
-
-			modelAndView.setViewName("home");
-		} catch (Exception e) {
-			e.printStackTrace();
-			modelAndView.setViewName("error");
-		}
-
-		modelAndView.addObject("foods", fetchFood);
-
-		return modelAndView;
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("foodId")int theId) {
+		
+		//Remove food item
+		foodService.deleteById(theId);
+		
+		//Redirect to the home
+		return "redirect:/";
+		
 	}
 }
