@@ -74,6 +74,11 @@
 		<hr style="margin-top: 15px; margin-bottom: 15px">
 			
 		<div class="container" style="width: 55%">
+		
+			<h5 style="margin-bottom: 15px">
+				Add Food
+			</h5>
+		
 			<form action="#"  th:action="@{/save}" th:object="${food}" method="POST">
 			
 				<!-- Invisible form as needed to update info -->
@@ -88,7 +93,7 @@
 					class="form-control mb-4 col-6"
 					placeholder="Calories">
 					
-				<button type="submit" class="btn btn-outline-primary">Add Food</button>
+				<button type="submit" class="btn btn-outline-primary">Add</button>
 			
 			</form>
 		</div>
@@ -101,16 +106,21 @@
 			<div id="results" class="row mx-md-n2" th:each="food: ${foods}">
   				<div class="col px-md-2">
   					<div class="p-2 border bg-light">
-  						<p th:text="'Item #:' + ${food.foodCode}" />
-  						<p th:text="${food.displayName}" />
-  						<p th:text="'Portion Size:' + ${food.portionDefault}" />
-  						<p th:text="'Calories:' + ${food.calories}" />
+  						<p style="font-size: 65%; color: gray" th:utext="'Item ID: ' + ${food.foodCode} + '<hr>'" />
+  						<p style="font-size: 100%; font-weight: bold; margin: 0" th:utext="${food.displayName}" />
+  						<p style="font-size: 90%; font-style: italic; margin: 0" th:utext="${food.portionDefault} + ' portions' + '<hr>'" />
+  						<p style="font-size: 100%; font-weight: bold; padding: 0; margin: 0" th:utext="${food.calories} + ' Calories'" />
   					</div>
   				</div>
 			</div>
 		</div>
 		
+		<hr>
+		
 		<div class="container" style="width: 55%">
+		
+			<h5 style="margin-bottom: 15px">Saved Items</h5>
+		
 			<table class="table table-striped">
 				<thead class="thead-light">
 					<tr>
